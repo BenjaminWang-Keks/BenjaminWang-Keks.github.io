@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王子琦 - 大客户销售经理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ai-blue: #0EA5E9;
+            --ai-blue-dark: #0284C7;
+            --ai-blue-light: #38BDF8;
+            --ai-cyan: #06B6D4;
+            --ai-purple: #8B5CF6;
+            --gradient-primary: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 50%, #8B5CF6 100%);
+            --gradient-card: linear-gradient(145deg, rgba(14, 165, 233, 0.03) 0%, rgba(139, 92, 246, 0.03) 100%);
+            --bg-dark: #0F172A;
+            --bg-card: #1E293B;
+            --bg-light: #F8FAFC;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-light: #94A3B8;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(14, 165, 233, 0.08);
+            --shadow-md: 0 4px 20px rgba(14, 165, 233, 0.12);
+            --shadow-lg: 0 10px 40px rgba(14, 165, 233, 0.2);
+            --shadow-glow: 0 0 30px rgba(14, 165, 233, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px 60px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.15;
+            animation: float 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Header Section */
+        .header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 60px 60px 80px 60px;
+            border-radius: 32px;
+            margin-bottom: 48px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: visible;
+            backdrop-filter: blur(10px);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.2); opacity: 0.25; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .avatar-section {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 210px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            font-weight: 700;
+            border: 6px solid rgba(255,255,255,0.5);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            animation: avatarGlow 3s ease-in-out infinite;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .avatar-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes avatarGlow {
+            0%, 100% { box-shadow: 0 15px 50px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 20px 60px rgba(255,255,255,0.5); }
+        }
+
+        .name {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            font-size: 17px;
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 800px;
+            font-weight: 400;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: rgba(255,255,255,0.95);
+            color: var(--ai-blue);
+            border: none;
+            padding: 14px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+            background: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-card);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .sidebar-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--ai-blue-light);
+        }
+
+        .sidebar-card:hover::before {
+            opacity: 1;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid transparent;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-image: var(--gradient-primary) 1;
+            border-image-slice: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Info */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 18px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item:hover {
+            background: var(--gradient-card);
+            transform: translateX(8px);
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .contact-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--ai-blue-light) 0%, var(--ai-cyan) 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.2);
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+            background: linear-gradient(135deg, var(--ai-purple) 0%, var(--ai-blue) 100%);
+        }
+
+        /* AI Tools Section */
+        .ai-tools {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-tool-item {
+            background: var(--gradient-card);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid transparent;
+            border-image: var(--gradient-primary) 1;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .ai-tool-item::before {
+            content: '🤖';
+            position: absolute;
+            right: 16px;
+            font-size: 20px;
+            opacity: 0.2;
+            transition: all 0.4s ease;
+        }
+
+        .ai-tool-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+            background: white;
+        }
+
+        .ai-tool-item:hover::before {
+            opacity: 1;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .ai-tool-name {
+            font-weight: 700;
+            color: var(--ai-blue);
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        .ai-tool-desc {
+            color: var(--text-secondary);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Education */
+        .education-item {
+            position: relative;
+            z-index: 1;
+        }
+
+        .education-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .education-details {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .education-time {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .education-extra {
+            font-size: 13px;
+            color: var(--ai-blue);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 28px;
+            padding: 48px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+
+        .content-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .content-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--ai-blue-light);
+        }
+
+        .content-section-title {
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 36px;
+            letter-spacing: -1px;
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-item:hover::before {
+            opacity: 1;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .experience-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            font-size: 18px;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .experience-date {
+            font-size: 14px;
+            color: white;
+            background: var(--gradient-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .achievements li::before {
+            content: '◆';
+            position: absolute;
+            left: 12px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .achievements li:hover {
+            color: var(--text-primary);
+            transform: translateX(8px);
+        }
+
+        .achievement-highlight {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: var(--ai-blue);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .achievements li:hover .achievement-highlight {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 50px 30px;
+            }
+
+            .avatar-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .name {
+                font-size: 40px;
+            }
+
+            .title {
+                font-size: 22px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .content-card {
+                padding: 32px 24px;
+            }
+
+            .experience-item {
+                padding-left: 20px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body::before,
+            .particle,
+            .scroll-progress {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .btn,
+            .header-actions {
+                display: none;
+            }
+
+            .header {
+                box-shadow: none;
+                page-break-after: avoid;
+            }
+
+            .sidebar-card,
+            .content-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            .main-grid {
+                display: block;
+            }
+
+            .sidebar {
+                position: static;
+                display: block;
+            }
+
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card,
+        .sidebar-card {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .sidebar-card:nth-child(1) { animation-delay: 0.1s; }
+        .sidebar-card:nth-child(2) { animation-delay: 0.2s; }
+        .sidebar-card:nth-child(3) { animation-delay: 0.3s; }
+        .sidebar-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .content-card:nth-child(1) { animation-delay: 0.2s; }
+        .content-card:nth-child(2) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="avatar-section">
+                        <div class="avatar">
+                            <img src="C:\Users\Benjamin\img src=photo.jpg alt=王子琦.jpg" alt="王子琦" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="avatar-text" style="display: none;">WZQ</span>
+                        </div>
+                        <div>
+                            <h1 class="name">王子琦</h1>
+                            <h2 class="title">大客户销售 / 销售经理</h2>
+                            <p class="tagline">5 年 B2B 方案销售与客户成功经验 · 累计拓展企业客户 400+ 家，签约 60+ 家 · 深度使用 Claude、Midjourney 等 AI 工具进行客户需求分析与方案设计 · 擅长从 0 到 1 开拓客户、整合资源提供定制化解决方案</p>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn" onclick="window.print()">
+                            <span>📄</span>
+                            <span>下载简历</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <span>✉️</span>
+                            <span>联系我</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number">5年</span>
+                        <span class="stat-label">B2B 销售经验</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">400+</span>
+                        <span class="stat-label">拓展企业客户</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">方案成功率</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">续约率</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100万+</span>
+                        <span class="stat-label">单笔最大订单</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Contact -->
+                <div class="sidebar-card" id="contact">
+                    <h3 class="section-title">联系方式</h3>
+                    <div class="contact-item" onclick="copyToClipboard('15011580675@163.com')">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">15011580675@163.com</div>
+                    </div>
+                    <div class="contact-item" onclick="copyToClipboard('15011580675')">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">15011580675</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">北京</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎂</div>
+                        <div class="contact-text">1996.04.16</div>
+                    </div>
+                </div>
+
+                <!-- Core Skills -->
+                <div class="sidebar-card">
+                    <h3 class="section-title">核心能力</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">解决方案销售</span>
+                        <span class="skill-tag">大客户攻坚</span>
+                        <span class="skill-tag">跨部门协同</span>
+                        <span class="skill-tag">客户成功管理</span>
+                        <span class="skill-tag">从 0 到 1 拓客</span>
+                        <span class="skill-tag">决策链分析</span>
+                        <span class="skill-tag">价值主张设计</span>
+                        <span class="skill-tag">销售漏斗管理</span>
+                        <span class="skill-tag">商务谈判</span>
+                        <span class="skill-tag">CRM 系统</span>
+                    </div>
+                </div>
+
+                <!-- AI Tools -->
+                <div class="sidebar-card">
+                    <h3 class="section-title">AI 工具应用</h3>
+                    <div class="ai-tools">
+                        <div class="ai-tool-item">
+                            <div class="ai-tool-name">Claude / ChatGPT</div>
+                            <div class="ai-tool-desc">客户需求分析、方案设计、内容创作</div>
+                        </div>
+                        <div class="ai-tool-item">
+                            <div class="ai-tool-name">Midjourney</div>
+                            <div class="ai-tool-desc">品牌设计、创意输出，效率提升 30%</div>
+                        </div>
+                        <div class="ai-tool-item">
+                            <div class="ai-tool-name">AI 商业化理解</div>
+                            <div class="ai-tool-desc">熟悉 AI 产品商业化逻辑，快速将技术能力转化为客户业务语言</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="sidebar-card">
+                    <h3 class="section-title">教育背景</h3>
+                    <div class="education-item">
+                        <div class="education-header">北京工商大学</div>
+                        <div class="education-details">贸易经济学 · 本科</div>
+                        <div class="education-time">2015.09 - 2020.06</div>
+                        <div class="education-extra">
+                            · 2016-2017 国防社副社长<br>
+                            · 2016 年组织残障儿童社会调查，调查报告获校级三等奖
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry Resources -->
+                <div class="sidebar-card">
+                    <h3 class="section-title">行业资源</h3>
+                    <div class="education-details" style="line-height: 1.8;">
+                        <strong style="color: var(--ai-blue);">400+ 科技、互联网、创投领域 B 端客户资源</strong>，可快速激活<br><br>
+                        <strong style="color: var(--text-primary);">语言:</strong> CET-4，可处理英文商务文件
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Work Experience -->
+                <div class="content-card">
+                    <h2 class="content-section-title">工作经历</h2>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">自由职业 / 商务顾问</h3>
+                                <p class="experience-company">AI 工具商业化实践</p>
+                            </div>
+                            <span class="experience-date">2025.02 - 2026.02</span>
+                        </div>
+                        <p class="experience-description">
+                            为客户提供品牌外包服务，涵盖包装策略、创意及设计、品牌物料设计等，深度探索 AI 工具在商业场景的应用。
+                        </p>
+                        <ul class="achievements">
+                            <li><strong>AI 工具商业化实践：</strong>使用 Midjourney/Claude 等工具提升设计效率 <span class="achievement-highlight">30%</span>，降低客户成本 <span class="achievement-highlight">20%</span></li>
+                            <li><strong>客户需求洞察：</strong>理解客户设计场景痛点，用 AI 帮客户降本增效，独立负责客户关系维护与项目交付</li>
+                            <li><strong>职业梳理：</strong>保持对 AIGC、企业级 AI 工具的行业敏感度，明确 AI+销售长期发展方向</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">项目经理</h3>
+                                <p class="experience-company">品类咨询 | 中国一线品牌战略营销咨询公司</p>
+                            </div>
+                            <span class="experience-date">2023.04 - 2024.10</span>
+                        </div>
+                        <p class="experience-description">
+                            负责消费品牌客户全生命周期管理，从方案销售到项目交付，实现客户成功与业务增长。
+                        </p>
+                        <ul class="achievements">
+                            <li><strong>客户成功与销售闭环管理：</strong>负责 7 家消费品牌客户全生命周期管理，续约率 <span class="achievement-highlight">100%</span>，3 家客户追加预算，平均增额 <span class="achievement-highlight">30%</span></li>
+                            <li><strong>方案销售：</strong>主导项目报价与服务范围设计，完成合同谈判，确保客户价值与公司利润平衡</li>
+                            <li><strong>跨部门协同：</strong>协调策略、创意、设计团队保障交付，交付准时率 <span class="achievement-highlight">100%</span>，客户满意度 <span class="achievement-highlight">100%</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">客户经理</h3>
+                                <p class="experience-company">创业邦 | 国际领先创新生态服务平台，国内头部创投科技媒体</p>
+                            </div>
+                            <span class="experience-date">2021.06 - 2023.03</span>
+                        </div>
+                        <p class="experience-description">
+                            负责 B 端客户开拓与复合型解决方案销售，服务上市公司、高成长企业、投资机构等。
+                        </p>
+                        <ul class="achievements">
+                            <li><strong>客户开拓：</strong>独立开发上市公司、高成长企业、投资机构等 B 端客户，累计签约客户 <span class="achievement-highlight">20+ 家</span></li>
+                            <li><strong>方案型销售：</strong>针对客户"媒体曝光+活动植入+研究报告"复合需求，拉通内部资源设计定制化方案，合作成功率 <span class="achievement-highlight">60%</span></li>
+                            <li><strong>谈判与签约：</strong>主导商务谈判、合同条款设计，将平均销售周期从 <span class="achievement-highlight">2 个月缩短至 1.5 个月</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">商务助理 / 项目助理</h3>
+                                <p class="experience-company">IDG | 世界领先市场研究、创业投资、展览会议、媒体传播整合服务平台</p>
+                            </div>
+                            <span class="experience-date">2019.03 - 2021.06</span>
+                        </div>
+                        <p class="experience-description">
+                            从 0 搭建大客户销售体系，实现企业客户从无到有的突破性增长。
+                        </p>
+                        <ul class="achievements">
+                            <li><strong>从 0 搭建大客户销售体系：</strong>在无客户池时探索"电话+邮件+展会"组合拓客方式，建立从线索到签约的完整转化流程</li>
+                            <li><strong>客户增长与业绩：</strong>企业客户从 <span class="achievement-highlight">0 增长至 260 家</span>，累计达成合作客户 40 余家；2020 年世界互联网大会项目 <span class="achievement-highlight">TopSales</span></li>
+                            <li><strong>大客户攻坚：</strong>成功签约某独角兽企业年度合作，合同金额 <span class="achievement-highlight">100 万+</span>，为单项目最大单笔订单</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Core Competencies -->
+                <div class="content-card">
+                    <h2 class="content-section-title">核心竞争力总结</h2>
+
+                    <div class="experience-item">
+                        <h3 class="experience-title" style="font-size: 20px; color: var(--ai-blue);">解决方案销售能力</h3>
+                        <p class="experience-description">
+                            独立完成从线索挖掘、需求分析、方案定制、商务谈判到签约的全流程，成功率 <strong>60%</strong>，平均客单价 <strong>25 万+</strong>。擅长将复杂的技术能力转化为客户业务语言，快速推动签约。
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="experience-title" style="font-size: 20px; color: var(--ai-blue);">跨部门协同与大客户攻坚</h3>
+                        <p class="experience-description">
+                            拉通产品、运营、技术等多部门资源，方案响应时间缩短 <strong>50%</strong>；擅长决策链分析与高层对话，成功签约知名独角兽企业，合同金额 <strong>100 万+</strong>。
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="experience-title" style="font-size: 20px; color: var(--ai-blue);">客户成功与经营</h3>
+                        <p class="experience-description">
+                            负责 7 个战略项目 <strong>100% 交付</strong>，续约率 <strong>100%</strong>，3 家客户追加预算，平均增额 <strong>30%</strong>。深刻理解客户成功对长期业绩的重要性。
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="experience-title" style="font-size: 20px; color: var(--ai-blue);">从 0 到 1 拓客能力</h3>
+                        <p class="experience-description">
+                            无客户池情况下，搭建完整销售体系，8 个月拓展企业客户 <strong>260+ 家</strong>。擅长多渠道组合拓客，建立从线索到签约的完整转化流程。
+                        </p>
+                    </div>
+
+                    <div class="experience-item" style="border: none; padding-bottom: 0; margin-bottom: 0;">
+                        <h3 class="experience-title" style="font-size: 20px; color: var(--ai-blue);">AI 工具深度应用</h3>
+                        <p class="experience-description">
+                            深度使用 Midjourney/Claude 等 AI 工具进行客户需求分析、方案设计与内容创作，效率提升 <strong>30%+</strong>。理解 AI 在实际应用中的商业价值，熟悉 AI 产品商业化逻辑，能快速学习新技术产品。
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Language Progress Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-card, .sidebar-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Copy to Clipboard Function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Create toast notification
+                const toast = document.createElement('div');
+                toast.textContent = '已复制到剪贴板: ' + text;
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+                    color: white;
+                    padding: 16px 24px;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 40px rgba(14, 165, 233, 0.4);
+                    z-index: 10000;
+                    font-weight: 600;
+                    animation: slideIn 0.5s ease;
+                `;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.5s ease';
+                    setTimeout(() => toast.remove(), 500);
+                }, 2000);
+            });
+        }
+
+        // Smooth Scroll Function
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Add toast animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + P for print
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+
+        // Add sparkle effect on skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Parallax effect for particles
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 20;
+                particle.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
